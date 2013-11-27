@@ -1,5 +1,3 @@
-%define idxver        0.40
-%define ezmanver      0.32
 %define apacheuser    apache
 %define apachegroup   apache
 %define debug_package %{nil}
@@ -10,14 +8,13 @@ Name: 		ezmlm
 Summary: 	Qmail Easy Mailing List Manager + IDX patches with mysql support
 Version: 	0.53
 Release: 	324%{?dist}
+%define idxver  0.40
 Group: 		Utilities/System
 License: 	GNU
 URL: 		http://cr.yp.to/ezmlm.html
 Source0:	http://cr.yp.to/software/ezmlm-%{version}.tar.gz
-#Source1: 	http://gd.tuwien.ac.at/infosys/mail/qmail/ezmlm-patches/ezmlm-idx-%{idxver}.tar.gz
-#Source1:	http://www.untroubled.org/ezmlm/archive/7.1.1/
-Source1:	http://www.untroubled.org/ezmlm/archive/%{idxver}/ezmlm-idx-%{idxver}.tar.gz
-Source2: 	http://www.untroubled.org/ezmlm/archive/ezman/ezman-%{ezmanver}.html.tar.gz
+Source1:	http://www.untroubled.org/ezmlm/archive/0.40/ezmlm-idx-0.40.tar.gz
+Source2: 	http://www.untroubled.org/ezmlm/archive/ezman/ezman-0.32.html.tar.gz
 BuildRequires:  mysql-devel >= 5.0.22
 Requires:       mysql >= 5.0.22
 Obsoletes: 	ezmlm-idx
