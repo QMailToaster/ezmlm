@@ -6,13 +6,14 @@
 
 Name: 		ezmlm
 Summary: 	Qmail Easy Mailing List Manager + IDX patches with mysql support
-Version: 	0.53.324
+%define ezver   0.53
+Version: 	%{ezver}.324
 Release: 	0%{?dist}
 %define idxver  0.40
 Group: 		Utilities/System
 License: 	GNU
 URL: 		http://cr.yp.to/ezmlm.html
-Source0:	http://cr.yp.to/software/ezmlm-%{version}.tar.gz
+Source0:	http://cr.yp.to/software/ezmlm-%{ezver}.tar.gz
 Source1:	http://www.untroubled.org/ezmlm/archive/0.40/ezmlm-idx-0.40.tar.gz
 Source2: 	http://www.untroubled.org/ezmlm/archive/ezman/ezman-0.32.html.tar.gz
 BuildRequires:  mysql-devel >= 5.0.22
@@ -96,8 +97,8 @@ Ezmlm cgi to query via apache mail archives.2
 #-------------------------------------------------------------------------------
 %prep
 #-------------------------------------------------------------------------------
-%setup -q -T -b 0 -n ezmlm-%{version}
-%setup -D -T -a 1 -n ezmlm-%{version}
+%setup -q -T -b 0 -n ezmlm-%{ezver}
+%setup -D -T -a 1 -n ezmlm-%{ezver}
 
 mv -f ezmlm-idx-%{idxver}/* .
 patch -s < idx.patch
@@ -149,31 +150,31 @@ mv MAN.tmp MAN
 
 # Fix css
 #-------------------------------------------------------------------------------
-%{__perl} -pi -e 's|/ezcgi.css|/scripts/styles.css|g' $RPM_BUILD_DIR/ezmlm-%{version}/ezcgirc
+%{__perl} -pi -e 's|/ezcgi.css|/scripts/styles.css|g' $RPM_BUILD_DIR/ezmlm-%{ezver}/ezcgirc
 
-cp $RPM_BUILD_DIR/ezmlm-%{version}/ezmlmrc.en_US \
+cp $RPM_BUILD_DIR/ezmlm-%{ezver}/ezmlmrc.en_US \
    %{buildroot}/%{_sysconfdir}/ezmlm/ezmlmrc
-cp $RPM_BUILD_DIR/ezmlm-%{version}/ezmlmrc.en_US \
+cp $RPM_BUILD_DIR/ezmlm-%{ezver}/ezmlmrc.en_US \
    %{buildroot}/%{_sysconfdir}/ezmlm/ezmlmrc.dist
-cp $RPM_BUILD_DIR/ezmlm-%{version}/ezmlmrc.it \
+cp $RPM_BUILD_DIR/ezmlm-%{ezver}/ezmlmrc.it \
    %{buildroot}/%{_sysconfdir}/ezmlm/
-cp $RPM_BUILD_DIR/ezmlm-%{version}/ezmlmrc.cs \
+cp $RPM_BUILD_DIR/ezmlm-%{ezver}/ezmlmrc.cs \
    %{buildroot}/%{_sysconfdir}/ezmlm/
-cp $RPM_BUILD_DIR/ezmlm-%{version}/ezmlmrc.da \
+cp $RPM_BUILD_DIR/ezmlm-%{ezver}/ezmlmrc.da \
    %{buildroot}/%{_sysconfdir}/ezmlm/
-cp $RPM_BUILD_DIR/ezmlm-%{version}/ezmlmrc.de \
+cp $RPM_BUILD_DIR/ezmlm-%{ezver}/ezmlmrc.de \
    %{buildroot}/%{_sysconfdir}/ezmlm/
-cp $RPM_BUILD_DIR/ezmlm-%{version}/ezmlmrc.es \
+cp $RPM_BUILD_DIR/ezmlm-%{ezver}/ezmlmrc.es \
    %{buildroot}/%{_sysconfdir}/ezmlm/
-cp $RPM_BUILD_DIR/ezmlm-%{version}/ezmlmrc.fr \
+cp $RPM_BUILD_DIR/ezmlm-%{ezver}/ezmlmrc.fr \
    %{buildroot}/%{_sysconfdir}/ezmlm/
-cp $RPM_BUILD_DIR/ezmlm-%{version}/ezmlmrc.ru \
+cp $RPM_BUILD_DIR/ezmlm-%{ezver}/ezmlmrc.ru \
    %{buildroot}/%{_sysconfdir}/ezmlm/
-cp $RPM_BUILD_DIR/ezmlm-%{version}/ezmlm-cgi \
+cp $RPM_BUILD_DIR/ezmlm-%{ezver}/ezmlm-cgi \
    %{buildroot}/%{basedir}/cgi-bin/ezmlm.cgi
-cp $RPM_BUILD_DIR/ezmlm-%{version}/ezcgirc \
+cp $RPM_BUILD_DIR/ezmlm-%{ezver}/ezcgirc \
    %{buildroot}/%{_sysconfdir}/ezmlm/ezcgirc
-cp $RPM_BUILD_DIR/ezmlm-%{version}/ezcgirc \
+cp $RPM_BUILD_DIR/ezmlm-%{ezver}/ezcgirc \
    %{buildroot}/%{_sysconfdir}/ezmlm/ezcgirc.dist
 
 tar xvzf %{SOURCE2}
