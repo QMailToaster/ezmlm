@@ -6,8 +6,8 @@
 
 Name: 		ezmlm
 Summary: 	Qmail Easy Mailing List Manager + IDX patches with mysql support
-Version: 	0.53
-Release: 	324%{?dist}
+Version: 	0.53.324
+Release: 	0%{?dist}
 %define idxver  0.40
 Group: 		Utilities/System
 License: 	GNU
