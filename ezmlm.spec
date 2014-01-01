@@ -4,26 +4,28 @@
 %define basedir       %{_datadir}/toaster
 %define ezroot        /usr
 
-Name: 		ezmlm
-Summary: 	Qmail Easy Mailing List Manager + IDX patches with mysql support
+Name:      ezmlm
+Summary:   Qmail Easy Mailing List Manager + IDX patches with mysql support
 %define ezver   0.53
-Version: 	0.53.324
-Release: 	0%{?dist}
+Version:   0.53.324
+Release:   0%{?dist}
 %define idxver  0.40
-Group: 		Utilities/System
-License: 	GNU
-URL: 		http://cr.yp.to/ezmlm.html
-Source0:	http://cr.yp.to/software/ezmlm-%{ezver}.tar.gz
-Source1:	http://www.untroubled.org/ezmlm/archive/0.40/ezmlm-idx-0.40.tar.gz
-Source2: 	http://www.untroubled.org/ezmlm/archive/ezman/ezman-0.32.html.tar.gz
-BuildRequires:  mysql-devel >= 5.0.22
-Requires:       mysql >= 5.0.22
-Obsoletes: 	ezmlm-idx
-Obsoletes: 	ezmlm-toaster
-Obsoletes: 	ezmlm-toaster-doc
-Obsoletes: 	ezmlm-cgi-toaster
-Conflicts: 	ezmlm-idx-std, ezmlm-idx-pgsql, ezmlm-idx-mysql
-BuildRoot:      %{_topdir}/BUILDROOT/%{name}-%{version}-%{release}.%{_arch}
+Group:     Utilities/System
+License:   GNU
+Vendor:    QmailToaster
+Packager:  Eric Shubert <qmt-build@datamatters.us>
+URL:       http://cr.yp.to/ezmlm.html
+Source0:   http://cr.yp.to/software/ezmlm-%{ezver}.tar.gz
+Source1:   http://www.untroubled.org/ezmlm/archive/0.40/ezmlm-idx-0.40.tar.gz
+Source2:   http://www.untroubled.org/ezmlm/archive/ezman/ezman-0.32.html.tar.gz
+BuildRequires: mysql-devel >= 5.0.22
+Requires:  mysql >= 5.0.22
+Obsoletes: ezmlm-idx
+Obsoletes: ezmlm-toaster
+Obsoletes: ezmlm-toaster-doc
+Obsoletes: ezmlm-cgi-toaster
+Conflicts: ezmlm-idx-std, ezmlm-idx-pgsql, ezmlm-idx-mysql
+BuildRoot: %{_topdir}/BUILDROOT/%{name}-%{version}-%{release}.%{_arch}
 
 #-------------------------------------------------------------------------------
 %description
